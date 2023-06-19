@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Angelo Fabrizio Meza Moina">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora IMC</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /*Barra de navegación responsive para pantallas mas pequeñas.*/
+    @media screen and (max-width: 810px) {
+      .navegacion {
+        display: grid;
+      }
+
+      .barra li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+
+    /* Estilos para Grid Layout */
+    .grid-container {
+      /* Configuración del grid layout */
+      display: grid;
+      /* Establece el contenedor como un grid */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+      /* Define las columnas del grid con un tamaño mínimo de 300px y un máximo de 2fr (fracciones) */
+      gap: 20px;
+      /* Espacio entre los elementos del grid */
+      margin-bottom: 20px;
+      /* Margen inferior para separar de otros elementos */
+      min-height: 100px;
+      /* Altura mínima del contenedor */
+    }
+
+    .grid-item {
+      /* Estilos para los elementos del grid */
+      border-radius: 10px;
+      /* Radio de las esquinas del elemento */
+      min-height: 200px;
+      /* Altura mínima del elemento */
+      font-weight: bold;
+      /* Grosor de la fuente en negrita */
+      padding: 20px;
+      /* Espacio interno alrededor del contenido del elemento */
+      position: relative;
+      /* Establece la posición del elemento como relativa */
+      overflow: hidden;
+      /* Oculta el contenido que desborda del elemento */
+      background-size: cover;
+      /* Ajusta el tamaño de la imagen de fondo para cubrir todo el elemento */
+      background-position: center center;
+      /* Posición de la imagen de fondo en el centro del elemento */
+      display: flex;
+      /* Establece el elemento como flexbox */
+      flex-direction: column;
+      /* Dirección de los elementos internos en columna */
+      justify-content: space-between;
+      /* Distribuye el espacio entre los elementos internos */
+    }
+
+    .grid-item p {
+      /* Estilos para el texto en los elementos del grid */
+      position: absolute;
+      /* Establece la posición del texto como absoluta */
+      bottom: 0;
+      /* Posiciona el texto en la parte inferior del elemento */
+      left: 0;
+      /* Posiciona el texto en la parte izquierda del elemento */
+      width: 100%;
+      /* Anchura del texto al 100% del elemento */
+      padding: 10px;
+      /* Espacio interno alrededor del texto */
+      color: #ddd;
+      /* Color del texto */
+      font-weight: bold;
+      /* Grosor de la fuente en negrita */
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Color de fondo del texto con transparencia */
+      margin: 0;
+      /* Margen del texto */
+      box-sizing: border-box;
+      /* Tamaño de la caja incluyendo el relleno y el borde */
+      opacity: 0.9;
+      /* Opacidad del texto */
+    }
+
+    .grid-item h4 {
+      /* Estilos para los títulos en los elementos del grid */
+      margin-top: 0;
+      /* Margen superior del título */
+      font-size: 20px;
+      /* Tamaño de la fuente del título */
+      color: black;
+      /* Color del título */
+      font-weight: bold;
+      /* Grosor de la fuente en negrita */
+      display: inline-block;
+      /* Elemento en línea */
+      margin-bottom: 10px;
+      /* Margen inferior del título */
+    }
+
+    .contenedor-tablaIMC {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .imc-table {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+
+    .imc-table th,
+    .imc-table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px groove #203e7a;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: #fff;
+    }
+
+    .imc-table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .imc-table {
+        font-size: 14px;
+      }
+
+      .imc-table th,
+      .imc-table td {
+        padding: 5px;
+      }
+    }
+
+
+    /* Estilos para la tabla de cálculo de IMC */
+    .imcal-table {
+      /* Estilos para la tabla de cálculo de IMC */
+      width: 100%;
+      /* Anchura de la tabla al 100% */
+      margin-bottom: 20px;
+      /* Margen inferior para separar de otros elementos */
+      border-collapse: collapse;
+      /* Colapsa los bordes de las celdas de la tabla */
+    }
+
+    .imcal-table th,
+    .imcal-table td {
+      /* Estilos para las celdas de la tabla de cálculo de IMC */
+      padding: 8px;
+      /* Espacio interno de las celdas */
+      text-align: left;
+      /* Alineación del texto a la izquierda */
+      border-bottom: 1px solid #ddd;
+      /* Borde inferior sólido con color */
+    }
+
+    .Calcular {
+      /* Estilos para el botón de calcular */
+      text-align: right;
+      /* Alineación del texto a la derecha */
+    }
+
+    /* Estilos generales */
+    body {
+      /* Estilos generales para el cuerpo del documento */
+      margin: 0;
+      /* Margen del cuerpo */
+      padding: 0;
+      /* Relleno del cuerpo */
+      font-family: Arial, sans-serif;
+      /* Fuente del cuerpo del documento */
+      width: 100%;
+      /* Anchura del cuerpo al 100% */
+    }
+
+    /* Estilos adicionales para el formulario */
+    #Formulario {
+      /* Estilos para el contenedor del formulario */
+      display: flex;
+      /* Establece el contenedor como flexbox */
+      justify-content: center;
+      /* Alineación del contenido en el centro horizontal */
+      align-items: center;
+      /* Alineación del contenido en el centro vertical */
+      flex-direction: column;
+      /* Dirección del contenido en columna */
+      margin-top: 20px;
+      /* Margen superior para separar de otros elementos */
+    }
+
+    .Contenedor-form {
+      /* Estilos para el contenedor del formulario */
+      display: flex;
+      /* Establece el contenedor como flexbox */
+      justify-content: center;
+      /* Alineación del contenido en el centro horizontal */
+      align-items: center;
+      /* Alineación del contenido en el centro vertical */
+      flex-direction: column;
+      /* Dirección del contenido en columna */
+      width: 90%;
+      /* Anchura del contenedor al 90% */
+      background-color: #f2f2f2;
+      /* Color de fondo del contenedor */
+      padding: 20px;
+      /* Espacio interno alrededor del contenido del contenedor */
+      border-radius: 5px;
+      /* Radio de las esquinas del contenedor */
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      /* Sombra alrededor del contenedor */
+    }
+
+    .imcal-table th,
+    .imcal-table td {
+      /* Estilos para las celdas de la tabla de cálculo de IMC */
+      padding: 5px;
+      /* Espacio interno de las celdas */
+      text-align: left;
+      /* Alineación del texto a la izquierda */
+    }
+
+    .imcal-table th {
+      /* Estilos para los encabezados de la tabla de cálculo de IMC */
+      width: 100px;
+      /* Anchura de los encabezados */
+    }
+
+    .imcal-table td input[type="text"],
+    .imcal-table td input[type="number"],
+    .imcal-table td select {
+      /* Estilos para los campos de entrada en la tabla de cálculo de IMC */
+      width: 100%;
+      /* Anchura de los campos al 100% */
+      padding: 5px;
+      /* Espacio interno de los campos */
+      border-radius: 3px;
+      /* Radio de las esquinas de los campos */
+      border: 1px solid #ccc;
+      /* Borde de los campos con color */
+    }
+
+    .Calcular {
+      /* Estilos para el botón "Calcular" */
+      background-color: #4CAF50;
+      /* Color de fondo del botón */
+      color: white;
+      /* Color del texto del botón */
+      border: none;
+      /* Borde del botón */
+      padding: 10px 20px;
+      /* Espacio interno del botón */
+      text-align: center;
+      /* Alineación del texto en el centro */
+      text-decoration: none;
+      /* Decoración del texto */
+      display: inline-block;
+      /* Elemento en línea */
+      font-size: 16px;
+      /* Tamaño de la fuente del botón */
+      border-radius: 5px;
+      /* Radio de las esquinas del botón */
+      cursor: pointer;
+      /* Cambio de cursor al pasar sobre el botón */
+      margin-top: 10px;
+      /* Margen superior del botón */
+    }
+
+    .Calcular:hover {
+      /* Estilos al pasar el cursor sobre el botón "Calcular" */
+      background-color: #45a049;
+      /* Cambio de color de fondo */
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>Calculadora de IMC</h1>
+  </header>
+
+  <nav class="menu">
+    <ul class="barra">
+      <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+      <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+      <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+      <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+      <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+      <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+      <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+      <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <!-- Grid Layout -->
+    <section>
+      <h2 style="border-bottom: 40px;">CONCEPTOS BÁSICOS PARA UN MEJOR ENTRENAMIENTO PERSONALIZADO</h2>
+
+      <div class="grid-container">
+        <!-- Cartilla 1 -->
+        <div class="grid-item" style="background-image: url('./Imagenes/IMC.jpg');">
+          <div class="card">
+            <h4>IMC</h4>
+            <p>El índice de masa corporal (IMC) es un indicador simple de la relación entre el peso y la talla que se
+              utiliza frecuentemente para identificar el sobrepeso y la obesidad en los adulto.</p>
+          </div>
+        </div>
+
+        <!-- Cartilla 2 -->
+        <div class="grid-item"
+          style="background-image: url('./Imagenes/Cómo calcular el IMC y qué hacer si indica que hay obesidad.jpg');">
+          <div class="card">
+            <h4>Grasa corporal</h4>
+            <p>El porcentaje de grasa corporal aceptable según el Consejo Americano de Ejercicio es de 25 a 31% en
+              mujeres y 18 a 24% en hombres.</p>
+          </div>
+        </div>
+
+        <!-- Cartilla 3 -->
+        <div class="grid-item" style="background-image: url('./Imagenes/masa msucular.jpg');">
+          <div class="card">
+            <h4>Masa muscular</h4>
+            <p>Tu cuerpo está formado por 4 componentes principalmente: agua, hueso, grasa y músculo o bien, en su
+              totalidad a este grupo se le denomina masa muscular.</p>
+          </div>
+        </div>
+
+        <!-- Cartilla 4 -->
+        <div class="grid-item" style="background-image: url(Imagenes/deficitcalorico.jpg);">
+          <div class="card">
+            <h4>Déficit Calórico</h4>
+            <p>Un déficit calórico significa consumir menos calorías de las que el cuerpo gasta.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="contenedor-tablaIMC">
+      <!-- Tabla IMC -->
+      <section>
+        <h2>TABLA IMC</h2>
+        <table class="imc-table">
+          <thead>
+            <tr>
+              <th>IMC</th>
+              <th>Estado de peso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Por debajo de 18.5</td>
+              <td>Bajo peso</td>
+            </tr>
+            <tr>
+              <td>18.5 - 24.9</td>
+              <td>Peso normal</td>
+            </tr>
+            <tr>
+              <td>25 - 29.9</td>
+              <td>Sobrepeso</td>
+            </tr>
+            <tr>
+              <td>30 o más</td>
+              <td>Obesidad</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- CALCULADORA IMC -->
+    <section>
+      <h2>Calcula tu IMC</h2>
+      <form id="Formulario">
+        <div class="Contenedor-form">
+          <table class="imcal-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <td><input type="text" placeholder="Nombre" id="nombre"></td>
+              </tr>
+              <tr>
+                <th>Edad</th>
+                <td><input type="number" placeholder="Edad" id="edad"></td>
+              </tr>
+              <tr>
+                <th>Peso (kg)</th>
+                <td><input type="text" placeholder="Peso" id="peso"></td>
+              </tr>
+              <tr>
+                <th>Altura (cm)</th>
+                <td><input type="text" placeholder="Altura" id="altura"></td>
+              </tr>
+              <tr>
+                <th>Género</th>
+                <td>
+                  <select id="genero">
+                    <option value="" disabled selected>Seleccione un género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Tipo de actividad física</th>
+                <td>
+                  <input type="checkbox" name="actividad" id="actividad" value="sedentario"
+                    onclick="limitarActividad(this)"> Sedentario<br>
+                  <input type="checkbox" name="actividad" id="actividad" value="ligero"
+                    onclick="limitarActividad(this)"> Ligero (ejercicio ligero 1-3 días/semana)<br>
+                  <input type="checkbox" name="actividad" id="actividad" value="moderado"
+                    onclick="limitarActividad(this)"> Moderado (ejercicio moderado 3-5 días/semana)<br>
+                  <input type="checkbox" name="actividad" id="actividad" value="intenso"
+                    onclick="limitarActividad(this)"> Intenso (ejercicio intenso 6-7 días/semana)<br>
+                  <input type="checkbox" name="actividad" id="actividad" value="muy-intenso"
+                    onclick="limitarActividad(this)"> Muy intenso (ejercicio diario, actividad física muy intensa)<br>
+                </td>
+              </tr>
+
+            </thead>
+          </table>
+          <button type="button" class="Calcular" onclick="calcularIMC()">Calcular IMC</button>
+          <!-- Botón de cálculo IMC -->
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function calcularIMC() {
+      // Obtener los valores ingresados por el usuario
+      var nombre = document.getElementById('nombre').value;
+      var edad = document.getElementById('edad').value;
+      var peso = document.getElementById('peso').value;
+      var altura = document.getElementById('altura').value;
+      var genero = document.getElementById('genero').value;
+      var checkboxes = document.getElementsByName('actividad');
+  
+     
+      // Validar que los campos no estén vacíos
+      if (nombre.trim() === '' || edad.trim() === '' || peso.trim() === '' || altura.trim() === '' || genero === '' || verificarActividadSeleccionada() == false) {
+        alert('Por favor, complete todos los campos del formulario.');
+        return;
+      }
+      // Validar que el campo nombre solo contenga letras
+      if (!validarNombre(nombre)) {
+        alert('Por favor, ingrese solo letras en el campo "Nombre".');
+        return;
+      }
+      // Validar que los campos numéricos sean números válidos
+      if (isNaN(edad) || isNaN(peso) || isNaN(altura)) {
+        alert('Por favor, ingrese valores numéricos válidos.');
+        return;
+      }
+  
+      // Validar que los campos numéricos sean mayores a cero
+      if (edad <= 0 || peso <= 0 || altura <= 0) {
+        alert('Por favor, ingrese valores mayores a cero.');
+        return;
+      }
+  
+      // Realizar el cálculo del IMC
+      var alturaMetros = altura / 100; // Convertir altura a metros
+      var imc = peso / (alturaMetros * alturaMetros);
+  
+      // Mostrar el resultado del cálculo del IMC
+      alert('Hola ' + nombre + '! Tu índice de masa corporal (IMC) es: ' + imc.toFixed(2));
+      
+      // Limpiar los campos del formulario
+      document.getElementById('nombre').value = '';
+      document.getElementById('edad').value = '';
+      document.getElementById('peso').value = '';
+      document.getElementById('altura').value = '';
+      document.getElementById('genero').selectedIndex = 0; // Restablece el campo select a su opción predeterminada
+      
+       // Restablecer los valores de los checkboxes
+       checkboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+      });
+  
+    }
+  
+    function limitarActividad(checkbox) {
+      const checkboxes = document.getElementsByName('actividad');
+      checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+          cb.checked = false;
+        }
+      });
+    }
+  
+    // Función que valida que el campo nombres solo contenga letras.
+    function validarNombre(nombre) {
+      var letras = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/;
+      return letras.test(nombre);
+    }
+  
+    function verificarActividadSeleccionada() {
+      const checkboxes = document.getElementsByName('actividad');
+      for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          return true; // Se ha seleccionado al menos una opción
+        }
+      }
+      return false; // No se ha seleccionado ninguna opción
+    }
+  </script>
+
+</body>
+
+</html>

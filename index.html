@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Angelo Fabrizio Meza Moina">
+  <title>Gimnasio Elite Gym</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hoja de estilo en línea */
+    /*Barra de navegación responsive para pantallas mas pequeñas.*/
+    @media screen and (max-width: 810px) {
+      .navegacion {
+        display: grid;
+      }
+
+      .barra li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+
+    /* Estilos para los encabezados de sección */
+    section h2 {
+      color: black;
+    }
+
+    /* Estilos para las tablas en secciones */
+    section table {
+      margin-top: 30px;
+    }
+
+    /* Estilos para las celdas de las tablas en secciones */
+    section table td {
+      background-color: #f5f5f5;
+    }
+
+    /* Estilos para el espacio entre párrafos de texto */
+    .texto {
+      margin-bottom: 20px;
+    }
+
+    /* Estilos para las imágenes responsivas */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Estilos para la tabla */
+    .table-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .table-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .table-container img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Estilos para las tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      font-family: Arial, sans-serif;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: #fff;
+    }
+
+    /* Estilos para la tabla responsiva en pantallas pequeñas */
+    @media (max-width: 768px) {
+      table {
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 8px;
+      }
+    }
+
+    /* Estilos para la cuadrícula */
+    .grid-container {
+      display: grid;
+      /* Crea un contenedor de cuadrícula */
+      grid-template-columns: repeat(2, 1fr);
+      /* Define dos columnas de tamaño flexible */
+      gap: 20px;
+      /* Espacio entre los elementos de la cuadrícula */
+      margin-bottom: 20px;
+      /* Margen inferior para separar de otros elementos */
+    }
+
+    .grid-item {
+      border-radius: 10px;
+      /* Aplica bordes redondeados */
+      min-height: 200px;
+      /* Establece la altura mínima del elemento */
+      font-weight: bold;
+      /* Define el grosor de la fuente como negrita */
+      padding: 20px;
+      /* Espacio interno alrededor del contenido */
+      position: relative;
+      /* Establece la posición del elemento como relativa */
+      overflow: hidden;
+      /* Oculta cualquier contenido que se desborde */
+      background-size: cover;
+      /* Ajusta el tamaño del fondo para cubrir el contenedor */
+      background-position: center center;
+      /* Centra el fondo */
+      display: flex;
+      /* Establece el elemento como flexbox */
+      flex-direction: column;
+      /* Establece la dirección de los elementos internos como columna */
+      justify-content: space-between;
+      /* Distribuye el espacio verticalmente entre los elementos */
+    }
+
+    .grid-item p {
+      position: absolute;
+      /* Establece la posición del elemento como absoluta */
+      bottom: 0;
+      /* Alinea el elemento en la parte inferior del contenedor */
+      left: 20px;
+      /* Alinea el elemento a 20px desde el lado izquierdo del contenedor */
+      color: #ddd;
+      /* Color del texto */
+      font-weight: bold;
+      /* Grosor de la fuente como negrita */
+      background-color: black;
+      /* Color de fondo del elemento */
+      opacity: 0.7;
+      /* Opacidad del elemento */
+    }
+
+    .grid-item h4 {
+      margin-top: auto;
+      /* Establece un margen superior automático para empujar el elemento hacia la parte superior del contenedor */
+      font-size: 20px;
+      /* Tamaño de fuente */
+      color: #ffffff;
+      /* Color del texto */
+      font-weight: bold;
+      /* Grosor de la fuente como negrita */
+      display: inline-block;
+      /* Establece el elemento como bloque en línea */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Color de fondo con transparencia */
+    }
+
+    /* Estilos para la distribución flexible */
+    .flex-container {
+      display: flex;
+      /* Establece el contenedor como flexbox */
+      justify-content: space-between;
+      /* Distribuye los elementos de manera uniforme en el eje horizontal */
+      margin-bottom: 30px;
+      /* Margen inferior para separar de otros elementos */
+      gap: 20px;
+      /* Espacio entre los elementos */
+    }
+
+    .flex-item {
+      flex-basis: 50%;
+      /* Establece el tamaño base de los elementos como el 50% del contenedor */
+      background-color: #f5f5f5;
+      /* Color de fondo de los elementos */
+      padding: 10px;
+      /* Espacio interno alrededor del contenido */
+      text-align: center;
+      /* Alineación del texto en el centro */
+      padding: auto;
+      /* Valor automático para el espaciado interno */
+    }
+
+    /* Estilos para los textos dentro de los elementos de la cuadrícula */
+    .grid-container .textos-items {
+      height: 100%;
+      /* Establece la altura de los elementos de texto como el 100% del contenedor */
+    }
+
+    /* Estilos para los bloques de Redes */
+    .flex-container {
+      display: flex;
+      /* Establece el contenedor como flexbox */
+      justify-content: space-between;
+      /* Distribuye los elementos de manera uniforme en el eje horizontal */
+      margin-bottom: 30px;
+      /* Margen inferior para separar de otros elementos */
+    }
+
+    /* Animación de salida */
+    .salida {
+      animation-name: salida;
+      /* Nombre de la animación definida a continuación */
+      animation-duration: 1s;
+      /* Duración de la animación */
+      animation-fill-mode: forwards;
+      /* Conserva los estilos finales de la animación */
+    }
+
+    @keyframes salida {
+      0% {
+        transform: scale(1);
+        /* Escala inicial del elemento */
+        opacity: 1;
+        /* Opacidad inicial del elemento */
+      }
+
+      100% {
+        transform: scale(0);
+        /* Escala final del elemento */
+        opacity: 0;
+        /* Opacidad final del elemento */
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>Bienvenido al Gimnasio Elite Gym</h1>
+  </header>
+
+  <nav class="menu">
+    <ul class="barra">
+      <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+      <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+      <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+      <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+      <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+      <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+      <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+      <li class="navegacion"><a class="links" href="Unete.html">Unete</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>¡Ponte en forma!</h2>
+    <p>¡Descubre tu mejor versión en el Gimnasio Elite Gym!</p>
+    <p>En nuestro gimnasio, te ofrecemos mucho más que un lugar para ejercitarte. Aquí encontrarás un ambiente
+      inspirador
+      y motivador donde podrás alcanzar todas tus metas de salud y bienestar.</p>
+    <p>Nuestro equipo de instructores altamente capacitados estará a tu lado en cada paso del camino, brindándote el
+      apoyo y la orientación necesarios para que logres resultados extraordinarios. Ya sea que quieras mejorar tu
+      condición física, perder peso, aumentar tu fuerza o simplemente mantenerte en forma, tenemos las clases y
+      servicios adecuados para ti.</p>
+    <p>¿Quieres disfrutar de divertidas clases grupales como zumba, yoga o spinning? ¿Prefieres trabajar con un
+      entrenador personalizado que diseñe un programa a medida según tus necesidades y objetivos? En el Gimnasio Elite
+      Gym, encontrarás una amplia variedad de opciones para que encuentres la rutina perfecta que se adapte a tu estilo
+      de vida.</p>
+    <p>Además, nuestro gimnasio cuenta con instalaciones modernas y equipamiento de última generación, creando un
+      entorno
+      propicio para que te sientas cómodo y motivado durante tus sesiones de entrenamiento.</p>
+    <p>No solo nos preocupamos por tu estado físico, sino también por tu bienestar emocional. En Elite Gym, encontrarás
+      un espacio acogedor donde podrás desconectar del estrés diario y cuidar tu mente a través de clases de relajación
+      y meditación.</p>
+    <p>¡Únete a nosotros y sé parte de la comunidad del Gimnasio Elite Gym! Descubre cómo tu cuerpo se transforma, cómo
+      aumenta tu energía y cómo te sientes más seguro y positivo en cada aspecto de tu vida.</p>
+    <img src="Imagenes/gym-home.jpg" alt="Gimnasio Elite Gym">
+
+    <article>
+      <h3>Beneficios del Gimnasio</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Ventajas de ir al gym</th>
+              <th>Desventajas de no ir al gym</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mejora tu condición física y cardiovascular.</td>
+              <td>Pérdida de oportunidades para mejorar la condición física y cardiovascular.</td>
+            </tr>
+            <tr>
+              <td>Ayuda a perder peso y mantener un peso saludable.</td>
+              <td>Riesgo de aumento de peso y problemas de salud asociados al sedentarismo.</td>
+            </tr>
+            <tr>
+              <td>Aumenta la fuerza y resistencia muscular.</td>
+              <td>Pérdida de fuerza y resistencia muscular.</td>
+            </tr>
+            <tr>
+              <td>Reduce el estrés y mejora el estado de ánimo.</td>
+              <td>Mayor probabilidad de experimentar estrés y cambios de ánimo negativos.</td>
+            </tr>
+            <tr>
+              <td>Proporciona un ambiente motivador y social.</td>
+              <td>Falta de interacción social y motivación para mantener un estilo de vida saludable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <h3 class="texto">¿Por qué elegirnos? </h3>
+
+    <div class="grid-container">
+      <div class="grid-item" style="background-image: url(./Imagenes/DİCİPLİNE.jpg);">
+        <div class="textos-items">
+          <h4>Disciplina</h4>
+          <p>Nos caracterizamos por seguirte durante todo el proceso de tu objetivo a alcanzar.</p>
+        </div>
+      </div>
+
+      <div class="grid-item"
+        style="background-image: url(./Imagenes/5\ Simple\ Diet\ Changes\ That\ Can\ Help\ You\ Lose\ 10\ Pounds.jpg);">
+        <div class="textos-items">
+          <h4>Nutrición</h4>
+          <p>Acompañamiento de un mejor estilo de alimentación durante todo el proceso de tu cambio.</p>
+        </div>
+      </div>
+
+      <div class="grid-item" style="background-image: url(./Imagenes/download\ \(1\).jpg);">
+        <div class="textos-items">
+          <h4>Música</h4>
+          <p>Porqué sabemos que la música te inspira.Contamos con instalaciones con música que te inspirará a sacar lo
+            mejor de ti.</p>
+        </div>
+      </div>
+
+      <div class="grid-item"
+        style="background-image: url(./Imagenes/Incentivize\ Gym\ Members_\ How\ To\ Be\ The\ Gift\ GOAT.jpg); background-position: center top 0.5px;">
+        <div class="textos-items">
+          <h4>Instructores</h4>
+          <p>Contamos con instructores altamente calificados para que logres tu objetivo.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="Redes">
+      <h2>Redes Sociales</h2>
+      <div class="flex-container">
+        <div class="flex-item">
+          <div class="sociales">
+            <img src="./Imagenes/facebookLogo.png" alt="Logo de Facebook" style="display: block; margin: 2px auto;">
+            <h4>Facebook</h4>
+            <p>+100k</p>
+          </div>
+        </div>
+
+        <div class="flex-item">
+          <div class="sociales">
+            <img src="./Imagenes/instagramLogo.png" alt="Logo de Instagram" style="display: block; margin: 2px auto;">
+            <h4>Instagram</h4>
+            <p>+250k</p>
+          </div>
+        </div>
+        <div class="flex-item">
+          <div class="sociales">
+            <img src="./Imagenes/twitterLogo.png" alt="Logo de Twitter" style="display: block; margin: 2px auto;">
+
+            <h4>Twitter</h4>
+            <p>50k</p>
+          </div>
+        </div>
+
+        <div class="flex-item">
+          <div class="sociales">
+            <img src="./Imagenes/tiktokLogo.png" alt="Logo de TikTok" style="display: block; margin: 2px auto;">
+            <h4>TikTok</h4>
+            <p>1M</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <footer class="pie">
+    <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+  </footer>
+  <script>
+    //Obtener las cartillas
+    var card = document.getElementsByClassName('grid-item');
+
+    // Agregar el evento de mouseover a cada cartilla
+    for (var i = 0; i < card.length; i++) {
+      card[i].addEventListener('mouseover', function () {
+        //Cambiar la opacidad al pasar el cursor sobre la cartilla
+        this.style.opacity = '0.5';
+        // Cambiar el estilo del cursor a "mano"
+        this.style.cursor = 'pointer';
+      });
+
+      //Agregar el evento de mouseout a cada cartilla
+      card[i].addEventListener('mouseout', function () {
+        //Cambiar la opacidad al pasar el cursor sobre la cartilla
+        this.style.opacity = '1';
+        // Cambiar el estilo del cursor a "mano"
+        this.style.cursor = 'auto';
+      });
+    }
+
+
+    // Obtener las redes sociales
+    var redes = document.getElementsByClassName('sociales');
+
+    // Agregar el evento de mouseover a cada red social
+    for (var i = 0; i < redes.length; i++) {
+      redes[i].addEventListener('mouseover', function () {
+        // Cambiar la opacidad al pasar el cursor sobre la red social
+        this.style.opacity = '0.5';
+        // Cambiar el estilo del cursor a "mano"
+        this.style.cursor = 'pointer';
+      });
+
+      // Agregar el evento de mouseout a cada red social
+      redes[i].addEventListener('mouseout', function () {
+        // Restablecer la opacidad al quitar el cursor de la red social
+        this.style.opacity = '1';
+        // Restablecer el estilo del cursor
+        this.style.cursor = 'auto';
+      });
+    }
+
+
+  </script>
+</body>
+
+</html>

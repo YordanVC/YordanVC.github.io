@@ -1,0 +1,87 @@
+/* Estilos generales */
+body {
+  background-color: #132549;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+  color: #ffffff;
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #132549;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Estilos de la barra de navegación */
+.menu {
+  background-color: #132549;
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilos de la lista de elementos de la barra de navegación */
+.barra {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos de cada elemento de la barra de navegación */
+.navegacion {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* Estilos de los enlaces de la barra de navegación */
+.links {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px;
+  display: inline-block;
+}
+
+/* Estilos de los enlaces de la barra de navegación al pasar el cursor sobre ellos */
+.links:hover {
+  background-color: #ffffff;
+  color: #34495e;
+}
+
+/* Estilos de las secciones */
+section {
+  background-color: #ffffff;
+  padding: 20px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* Estilos del pie de página */
+.pie {
+  background-color: #132549;
+  opacity: 70%;
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.pie p {
+  margin: 0;
+}

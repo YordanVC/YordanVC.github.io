@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo Arturo Vargas Alvarado">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio Elite Gym: Contactos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /*ESTILOS GENERALES  */
+        @media screen and (max-width: 810px) {
+        .navegacion {
+            display: grid;
+        }
+
+        .barra li {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+        }
+        .contenedor>p {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .opciones {
+            width: 200px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            background-color: #cad5ddbe;
+            border-radius: 8px;
+        }
+        .opciones img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .opciones h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .opciones p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        #contenedorPrincipal {
+            width: 90%;
+            margin: auto;
+        }
+        form {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .elemento h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: #ffff;
+        }
+        .elemento form p {
+            margin-bottom: 10px;
+        }
+        .radiob input[type="radio"] {
+            margin-right: 5px;
+            text-align: center;
+        }
+        .elemento form input[type="text"],
+        .elemento form input[type="email"],
+        .elemento form input[type="tel"],
+        .elemento input[type="number"],
+        .elemento form textarea,
+        .elemento form input[type="date"],
+        .elemento select  {
+            width: 90%;
+            padding: 10px 15px;
+            border-radius: 30px;
+            border: 1px solid #e0dfdf;
+            background: rgba(17, 17, 17, 0.1);
+        }
+        
+        .elemento form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .elemento {
+            border-radius: 10px;
+            padding: 10px;
+            min-width: 105px;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+        .elemento h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .elemento img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /*Opaca el botón enviar cuando el usuario pasa el cursor sobre él*/
+        .btnEnviar:hover {
+            opacity: 0.7;
+        }
+        .info-contact, .info-Mensaje, .info-redes {
+            width: 80%;
+            background-color: #d2d9df7a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10%;
+        }        
+ 
+        .info-contact p {
+            margin-bottom: 10px;
+        }
+
+        .info-contact ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-contact ul li {
+            margin-bottom: 5px;
+        }
+
+        #mapa-container {
+            width: 100%;
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        #mapa-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /*Negrita y color a los asteriskos de los datos requeridos*/
+        .asteriskos {
+            color: red;
+        }
+
+        .miestilo {
+            transform: scale(1.1);
+        }
+
+
+
+        /*----------Maquetación------------*/
+
+        /*al contenedor se le aplica display:flex*/
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /*al contenedorprincipal se le aplica display:grid*/
+        #galeria {
+            display: grid;
+            grid-template-rows: 150px 150px 150px;
+            /*altura de las filas*/
+            grid-template-columns: 30% 30% 30%;
+            /* ancho de las columnas*/
+            grid-gap: 15px 20px;
+            /* distancia row column*/
+
+        }
+        .clearFloat {
+            clear: both;
+            margin: 0;
+        }
+        .elemento:nth-child(1) {
+            grid-row: 1/6;
+            grid-column: 1/3;
+        }
+
+        .elemento:nth-child(2) {
+            grid-row: 1/5;
+            grid-column: 3/5;
+
+        }
+        /*a los labels del formulario se le aplica display:block*/
+       .elemento form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        /*a la clase que contiene los elementos radiob y label se le aplica display:inline-flex*/
+        .radiob {
+            display: inline-flex;
+            align-items: start;
+            margin-right: 20px;
+            justify-content: center;
+        }
+
+        /*a la clase de la informacion de redes se le aplica display:flex*/
+        .info-redes{
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+       }
+       /*al div que contiene el checkbox se le aplica display:flex*/
+         #checkbox-container {
+            display: flex;
+            align-items: start;
+        }
+
+        #checkbox-container input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contacto</h1>
+    </header>
+    <nav class="menu">
+        <ul class="barra">
+            <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+            <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+            <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+            <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+            <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+            <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+            <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+            <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+          </ul>
+    </nav>
+    <section class="contenedor">
+        <p>ESTAMOS LISTOS PARA AYUDARTE</p><br>
+        <div class="opciones">
+            <img src="Imagenes/ConsultasG.png" alt="Consulta general">
+            <h3>Consulta general</h3>
+            <p>Si estás decidiendo qué servicio usar para tu negocio, o tienes un tema en especial, escríbenos</p>
+
+        </div>
+        <div class="opciones">
+            <img src="Imagenes/technical-support.png" alt="SupportTecnical">
+            <h3>Soporte técnico</h3>
+            <p>¿Eres cliente? Si requieres asistencia o asesoría profesional, crea un ticket de soporte.</p>
+        </div>
+        <div class="opciones">
+            <img src="Imagenes/402339.png" alt="Subscribe">
+            <h3>Suscríbete al boletín</h3>
+            <p>Apúntate y recibe gratis una Guía para una rutina de ejercicios y buenos hábitos.</p>
+        </div>
+        <div class="opciones">
+            <img src="Imagenes/1055677.png" alt="Afiliado">
+            <h3>Programa de afiliados</h3>
+            <p>Promociona nuestros servicios y gana grandes comisiones.</p>
+        </div>
+    </section>
+    <section>
+        <div id="contenedorPrincipal">
+            <div id="galeria">
+                                  
+
+                        <div class="elemento">
+                            <!-- onsubmit=return validar() PERMITE LLAMAR A LA FUNCION DE JAVASCRIPT QUE VALIDA EL FORMULARIO-->
+                            <form id="formContacto" name="formContacto">
+                                
+                                <h2>Formulario de Contacto</h2>
+
+                                <div>
+                                    <label>¿Eres miembro?:</label>
+                                    <input type="radio" class="miembro" id="nuev" name="miembro" value="s" />Si
+                                    <input type="radio" class="miembro" id="nov"  name="miembro" value="n" />No
+                                </div>
+            
+                                <div>
+                                    <label for="nombres">Nombres completo:</label>
+                                    <input type="text" name="nombres "id="nombres" class="formItem">
+                                    <br><br>
+                                </div>
+            
+                                <div>
+                                    <label>Fecha de Nacimiento:</label>
+                                    <input type="date" name="fecha" id="fecha" class="formItem" />
+                                    <br><br>
+                                </div>
+            
+                                <div>
+                                    <label>Género:</label>
+                                    <select name="sexo" id="sexo" class="formItem" >
+                                        <option value="0">Seleccione..</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Femenino</option>
+                                        <option value="3">Otro</option>
+                                    </select>
+                                    <br><br>
+                                </div>
+            
+                                <div>
+                                    <label>Correo electrónico:</label>
+                                    <input type="text" name="correo" id="correo" class="formItem" />
+                                    <br><br>
+                                </div>
+            
+                                <div>
+                                    <label>Telefono:</label>
+                                    <input type="text" name="telefono" id="telefono" class="formItem" />
+                                    <br><br>
+                                </div>
+            
+                                <div>
+                                    <label for="asunto">Asunto:</label>
+                                    <input type="text" name="asunto" id="asunto" class="formItem">
+                                    <br><br>
+                                </div>
+                               
+                                <div>
+                                    <label>Comentario:</label>
+                                    <textarea class="form-control" id="comentario" name="comentario" rows="4" cols="50" class="formItem">
+                                        
+                                    </textarea>
+                                </div>
+                                
+                                <div>
+                                    <label>Terminos y condiciones:</label>
+                                    <input type="checkbox" name="terminos" value="Y" id="terminos" class="formItem"/>Acepto dar mis datos para obtener una respuesta<br><br>
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" name="btnEnviar" class="btnEnviar" value="Enviar">
+                               </div>
+            
+                            </form>
+            
+                        </div>
+
+
+
+               
+                <div class="elemento">
+                        <div class="info-Mensaje">
+                            <article>
+                                <h4>Habla con nosotros</h4>
+                                <p>Puedes ponerte en contacto con nuestro equipo, rellenando este formulario o bien llamando por teléfono.</p>
+                                <p>Estaremos encantados de solucionar todas tus dudas.</p>
+                            </article>
+                        </div>
+                        <div class="info-contact">
+                            <article>                                
+                                <h4>Información de Contacto</h4>
+                                <ul>
+                                    <li><strong>Téfono:</strong> +593 95 9789 432</li>
+                                    <li><strong>Correo electrónico:</strong> gymElite@gmail.com</li>
+                                    <li><strong>Dirección:</strong> Guayaquil, Guayas, Ecuador</li>
+                                </ul>
+                            </article>
+                        </div>
+                        <div class="info-redes" id="ImagenesG">
+                            <article>                                
+                                <h4>Redes Sociales</h4>                               
+                                    <a href="#"><img src="Imagenes/Facebook.png" alt="Facebook"></a>
+                                    <a href="#"><img src="Imagenes/Instagram.png" alt="Instagram"></a>
+                                    <a href="#"><img src="Imagenes/tiktok.png" alt="TikTok"></a>
+                                    <a href="#"><img src="Imagenes/Youtube.png" alt="YouTube"></a>
+                                    <a href="#"><img src="Imagenes/TWITTER.png" alt="Twitter"></a>                                
+                            </article>
+                        </div>                       
+                </div>            
+            </div>
+        </div>
+          <div class="clearFloat"></div>
+                <h2><br>UBICACIÓN</h2>
+                    <div id="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1014.1549858062806!2d-79.89992281259403!3d-2.180410212688345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d6de631f459c1%3A0xb245c3cb30e56d11!2sFedergym!5e0!3m2!1ses!2sec!4v1685072460272!5m2!1ses!2sec"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+        </section>
+
+            <footer class="pie">
+                    <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+            </footer>
+
+
+        <script>
+             var imagenes = document.querySelectorAll(".info-redes img");
+            document.formContacto.addEventListener('submit', validar);
+
+            //imagenes.addEventListener("mouseover", agrandarImagen);
+            //imagenes.addEventListener("mouseout", restaurarTamaño);
+            for (var i = 0; i < imagenes.length; i++) {
+                imagenes[i].addEventListener("mouseover", agrandarImagen);
+                imagenes[i].addEventListener("mouseout", restaurarTamaño);
+            }
+
+            function agrandarImagen() {
+                this.style.transform = "scale(1.1)";
+            }
+
+            function restaurarTamaño() {
+                this.style.transform = "scale(1)";
+            }
+
+
+
+            function validar(event) {
+                var resultado = true; 
+                // Obtener los elementos a validar ingresados por el usuario
+                var radiosMiembros = document.getElementsByName("miembro");
+                var txtNombres = document.getElementById("nombres");
+                var txtfecha = document.getElementById("fecha");
+                var selectGenero = document.getElementById("sexo");
+                var txtemail = document.getElementById("correo");
+                var txtTelefono = document.getElementById("telefono");
+                var txtAsunto = document.getElementById("asunto");  
+                var txtComent = document.getElementById("comentario");
+                var chkTerminos = document.getElementById("terminos");
+
+                // expresiones regulares (RegEx)
+                var letra = /^[a-z ,.'-]+$/i;// letrasyespacio   ///^[A-Z]+$/i;// solo letras
+                var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                var numeroreg = /^[0-9]{10}$/g; // para validar datos que deban tener 10 numeros
+                var telefonoreg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+                
+                // llamada a funcion
+                limpiarAsteriskos();
+
+                
+                // Validacion de los radio button. Recorre el arreglo mediante un for
+                let sel = false;
+                for (let i = 0; i < radiosMiembros.length; i++) {
+                    if (radiosMiembros[i].checked) {
+                        sel = true;
+                        let res = radiosMiembros[i].value; // De ser encontrarse seleccionado un radiob 
+                        //se signa el parámetro a la variable res
+                        break;
+                    }
+                }
+                // Verifica si no existe una selección
+                if (!sel) {
+                    resultado = false;
+                    mensaje("*", radiosMiembros[0]);
+                }
+
+                // Verifica que todos los campos sean completados o seleccionados
+                if(txtNombres.value.trim()==="" || txtemail.value.trim()==="" || txtTelefono.value==="" || 
+                  txtAsunto.value==="" || txtComent.value.trim() ==="" || !chkTerminos.checked || 
+                  selectGenero.value === null || selectGenero.value === '0' || !sel || txtfecha.value===""){
+                    resultado=false;
+                    alert("Complete todos los campos para enviar el formulario");
+                }
+
+                // Validacion para los nombres (Que no esté vacío y cumpla la expresión regular de solo letras)
+                if (txtNombres.value === "") {
+                    resultado = false;
+                    mensaje("*", txtNombres);
+                } else if (!letra.test(txtNombres.value)) { 
+                    resultado = false;
+                    mensaje("*", txtNombres);
+                    alert("Por favor, el campo Nombre solo deben contener letras");
+                }
+
+                // Validacion de fecha vacía
+                if(txtfecha.value===""){
+                    resultado=false;
+                    mensaje("*", txtfecha);
+                }
+                //Conversión para validar la fecha a detalle
+                var dato = txtfecha.value;
+                var fechaN = new Date(dato);// convertir a fecha
+                var anioN = fechaN.getFullYear();
+                var fechaActual = new Date();// fecha actual
+                var anioA = fechaActual.getFullYear();
+                if (fechaN > fechaActual) {
+                    resultado = false;
+                    mensaje("Fecha no puede ser superior a la actual", txtfecha);
+                } else if (anioN < 1930) {
+                    resultado = false;
+                    mensaje("Anio de nacimiento no puede ser menor a 1930", txtfecha);
+                } else if ((anioA - anioN) < 18) {
+                    resultado = false;
+                    mensaje("debe ser mayor de 18 años", txtfecha);
+                }
+
+                // Validacion de la selección del Género (Que se seleccione 1 y que la selección no sea la primera opción)
+                if (selectGenero.value === null || selectGenero.value === '0') {
+                    resultado = false;
+                    mensaje("*", selectGenero);
+                }   
+
+                // Validación del correo (Que no esté vacío y que cumpla con la expresión regular para correos)
+                if (txtemail.value.trim() === "") {
+                    resultado = false;
+                    mensaje("*", txtemail);
+                } else if (!correo.test(txtemail.value)) {
+                    resultado = false;
+                    mensaje("*", txtemail);
+                    alert("Correo electrónico inválido. Asegúrese de ingresar un correo válido");
+                }
+
+                // Validacion del telefono (Que no esté vacío y que cumpla con la expresión regular para teléfonos) 
+                if (txtTelefono.value === "") {
+                    resultado = false;
+                    mensaje("*", txtTelefono);
+                } else if (!telefonoreg.test(txtTelefono.value)) {
+                    resultado = false;
+                    mensaje("*", txtTelefono);
+                    alert("Su número telefónico debe ser de 10 dígitos");
+                }
+
+                // Validación del asunto (Que no esté vacío)
+                if(txtAsunto.value === ""){
+                    resultado = false;
+                    mensaje("*", txtAsunto);
+                } else if(txtAsunto.value.length >20){
+                    resultado = false;
+                    mensaje("*", txtAsunto);
+                    alert("Asunto máximo 20 caracteres");
+                }
+
+                // Validación del comentario
+                if(txtComent.value.trim() === ""){
+                    resultado = false;
+                    mensaje("*", txtComent);
+                }
+                // Validacion del checkbox de Términos y condiciones
+                if (!chkTerminos.checked) {
+                    resultado = false;
+                    mensaje("*", chkTerminos);
+                }
+
+                // Por verdadero: Permite el correcto envío de los datos
+                // Por falso: Detiene el evento de envío
+                if (resultado) {                   
+                    alert("Formulario enviado exitosamente");
+                }else{ 
+                    event.preventDefault();
+                }
+
+            }
+
+            // Función para añadir el asterisko a los elementos     
+            function mensaje(cadenaMensaje, elemento) {
+                elemento.focus();
+                var nodoPadre = elemento.parentNode; // div
+                var labelMssg = nodoPadre.getElementsByTagName('label')[0];
+                var nodoMensaje = document.createElement("span");
+                nodoMensaje.textContent = cadenaMensaje;
+                nodoMensaje.className = "asteriskos";
+                labelMssg.appendChild(nodoMensaje);
+            }
+
+    // Función para eliminar los asteriskos de requerido a medida que se vayan completando los datos
+        function limpiarAsteriskos() {
+            var mensajes = document.querySelectorAll(".asteriskos");// retorna un arreglo
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();// remueve o elimina un elemento de mi doc html
+            }
+        }
+
+        // Evento de teclado. Restringe el ingreso de caracteres a solo numéricos
+    formContacto.telefono.addEventListener("keypress", soloNumeros);
+        function soloNumeros(e){
+        var key =e.keyCode ;
+        if(key < 48 || key > 57){
+            e.preventDefault();
+        }
+        if(e.target.value.length >=10){
+            e.preventDefault();
+        }
+    }
+
+        
+        </script>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Melanie Carelis Coloma Moreno">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios que Ofrece el Gimnasio Elite Gym</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+              background-color: #132549;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .menu {
+            background-color: #132549;
+            padding: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .barra {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .barra li {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px; /* Espacio entre los elementos en pantallas pequeñas */
+        }
+
+        @media screen and (max-width: 600px) {
+            .barra li {
+                width: 100%; /* Los elementos ocuparán todo el ancho en pantallas pequeñas */
+                margin-right: 0;
+                margin-bottom: 5px; /* Espacio reducido entre los elementos en pantallas pequeñas */
+            }
+        }
+
+        .imagenes-formulario {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .imagen-descripcion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .imagen-descripcion img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-width: 250px;
+            margin-bottom: 10px;
+        }
+
+        .imagen-descripcion p {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .servicio {
+            margin-bottom: 30px;
+        }
+
+        .servicio h3 {
+            margin-bottom: 10px;
+        }
+
+        .servicio p {
+            margin-bottom: 20px;
+        }
+
+        .servicio img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        
+        .contenedor-cuadro {
+            display: grid;
+            justify-content: center;
+            max-width: 900px; /* Ajusta el ancho máximo según tus necesidades */
+            margin: 0 auto;
+            margin-top: 4%; /* Mueve el margen superior aquí para afectar a todos los contenedores */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .info-servicio,
+        .info-clase,
+        .info-nutricion {
+            flex: 0 0 calc(30% - 10px); /* Modificar para ajustar el ancho de los contenedores y el espacio en blanco */
+            background-color: #d2d9df7a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px; /* Agregar espacio entre los contenedores */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra para diferenciar los contenedores */
+            transition: transform 0.3s ease; /* Agregar transición de transformación */
+        }
+
+        .info-servicio:hover,
+        .info-clase:hover,
+        .info-nutricion:hover {
+            transform: translateY(-5px); /* Aplicar una transformación en el eje Y al pasar el cursor */
+        }
+        .imagen-chica {
+            width: 300px;
+            height: auto;
+            max-width: 250px;
+            border-radius: 50%;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #132549;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Servicios de nuestro Gimnasio</h1>
+    </header>
+
+    <nav class="menu">
+        <ul class="barra">
+            <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+            <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+            <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+            <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+            <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+            <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+            <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+            <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+        </ul>
+    </nav>
+
+    <section id="contenedor-cuadro">
+        <h2>Nuestros Servicios</h2>
+
+        <div class="contenedor-cuadro">
+            <div class="info-servicio">
+                <h3>Servicio de Asistencia Personalizada</h3>
+                <div>
+                    <img src="Imagenes/imagen1.jpeg" alt="Servicio 1" class="imagen-chica">
+                </div>
+                <p>Nuestro servicio de asistencia personalizada está diseñado para brindarte un entrenamiento
+                    individualizado y adaptado a tus objetivos y necesidades específicas. Contarás con un entrenador
+                    personal altamente calificado que te guiará y motivará durante todo el proceso.</p>
+            </div>
+
+            <div class="info-clase">
+                <h3>Servicio de Clases Grupales</h3>
+                <div>
+                    <img src="Imagenes/imagen2.jpg" alt="Servicio 2" class="imagen-chica">
+                </div>
+                <p>Disfruta de nuestra amplia variedad de clases grupales diseñadas para ayudarte a alcanzar tus metas de
+                    forma divertida y motivadora. Nuestros instructores altamente capacitados te guiarán a través de
+                    sesiones dinámicas que incluyen entrenamiento cardiovascular, fortalecimiento muscular, yoga, pilates y
+                    mucho más.</p>
+            </div>
+
+            <div class="info-nutricion">
+                <h3>Servicio de Nutrición</h3>
+                <div>
+                    <img src="Imagenes/imagen3.jpeg" alt="Servicio 3" class="imagen-chica">
+                </div>
+                <p>Nuestro servicio de nutrición está diseñado para complementar tus esfuerzos en el gimnasio y ayudarte a
+                    alcanzar tus objetivos de forma integral. Nuestros expertos en nutrición te brindarán asesoramiento
+                    personalizado, te ayudarán a establecer un plan de alimentación equilibrado y te enseñarán hábitos
+                    alimentarios saludables para optimizar tu rendimiento y bienestar.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

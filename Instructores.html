@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Yordan Ivan Valdiviezo Capa">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Instructores Elite Gym</title>
+    <style>
+        /*maquetacion Grid*/
+        .Contenedor-grid {
+            min-height: 100%;
+            display: grid;
+            gap: 10px;
+            /*separacion entre areas*/
+            grid-template-areas:
+                /*Definir las areas*/
+                "header"
+                "menu"
+                "contenido"
+                "horarios"
+                "testimonios"
+                "footer"
+                /*diseño para moviles*/
+            ;
+        }
+
+        /*Asignar las areas Grid*/
+        .header {
+            grid-area: header;
+        }
+
+        .menu {
+            grid-area: menu;
+        }
+
+        .contenedor {
+            grid-area: contenido;
+        }
+
+        .horarios {
+            grid-area: horarios;
+        }
+
+        .testimonios {
+            grid-area: testimonios;
+        }
+
+        .pie {
+            grid-area: footer;
+        }
+
+        /*Diseño para escritorio*/
+        @media(min-width: 900px) {
+            .Contenedor-grid {
+                grid-template:
+                    "header header  header" 100px
+                    /*se puede definir de una vez el alto de las filas*/
+                    "menu   menu    menu" 50px
+                    "contenido    contenido   contenido" auto
+                    "horarios   horarios    horarios" auto
+                    "testimonios    testimonios testimonios" auto
+                    "footer footer  footer" 100px/auto;
+                /*aqui se pueden definir el ancho de las columnas*/
+            }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            /*separacion*/
+        }
+
+        .contenedor>p {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .instructor {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            /*alinea texto*/
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        .instructor img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            /*ajusta imagen al contenedor*/
+            border-radius: 50%;
+            /*forma redondeada*/
+            margin-bottom: 10px;
+        }
+
+        .instructor h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .instructor p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        /*contenido oculto que se activa depues*/
+        .VerMas {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /*unificar bordes de columnas de una tabla*/
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            /*linea que separa filas*/
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        .frase-motivacional {
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /*maquetacion inline-block*/
+        .boton {
+            display: inline-block;
+            background-color: #132549;
+            color: #ffffff;
+            /*letra blanca*/
+            text-decoration: none;
+            /*quitar subrayado de link*/
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 25px;
+            border-radius: 15px;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /*Al sobreponer el cursor*/
+        .boton:hover {
+            background-color: #2c73ff;
+            color: #ffffff;
+        }
+
+        .testimonios {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .testimonio {
+            width: 450px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        .testimonio img {
+            width: 220px;
+            height: 220px;
+            padding: 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+
+        /*estilo p hijo directo de testimonios*/
+        .testimonios>p {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+            padding: 5px;
+        }
+
+        .boton-imagen {
+            opacity: 0.5;
+            /*por defecto esta en opacidad baja*/
+            display: inline-block;
+            align-items: center;
+            width: 250px;
+            height: 50px;
+            background-image: url('https://portal.ucol.mx/content/micrositios/204/image/inscribete_ahora.png');
+            background-size: cover;
+            /*ajusta elemento manteniendo aspecto original*/
+        }
+
+        .boton-imagen:hover {
+            opacity: 1;
+            /*sube la opacidad al pasar el cursor*/
+        }
+    </style>
+</head>
+
+<body class="Contenedor-grid">
+    <header class="header">
+        <h1 id="titulo">Instructores: Experto apoyo para alcanzar tus objetivos de fitness</h1>
+    </header>
+    <nav class="menu">
+        <ul class="barra">
+            <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+            <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+            <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+            <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+            <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+            <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+            <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+            <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+        </ul>
+    </nav>
+    <section class="contenedor">
+        <p>Nuestro personal calificado:</p><br>
+        <div class="instructor">
+            <img src="https://www.oregoncareersinhealthcare.com/wp-content/uploads/2020/10/how-to-become-a-fitness-instructor.jpg"
+                alt="Foto del instructor">
+            <h3>Nombre del Instructor: Juan</h3>
+            <p><strong>Experiencia y certificaciones:</strong> Entrenador personal con 10 años de experiencia en
+                fitness y certificado en nutrición deportiva.</p>
+            <p><em>"Ayudo a mis clientes a alcanzar sus metas de acondicionamiento físico a través de programas
+                    personalizados y motivación constante."</em></p>
+        </div>
+        <div class="instructor">
+            <img src="https://thumbs.dreamstime.com/b/middle-aged-bodybuilder-portrait-happy-male-47297561.jpg"
+                alt="Foto del instructor">
+            <h3>Nombre del Instructor: Pedro</h3>
+            <p><strong>Experiencia y certificaciones:</strong> Licenciado en Educación Física y certificado en
+                entrenamiento funcional.</p>
+            <p><em>"Me especializo en el desarrollo de programas de entrenamiento funcional para mejorar la fuerza,
+                    la flexibilidad y el equilibrio de mis clientes."</em></p>
+        </div>
+        <div class="instructor">
+            <img src="https://man-man.nl/app/uploads/2019/04/marc_fitt_47475848_321188505155157_4418669366417961444_n.jpg"
+                alt="Foto del instructor">
+            <h3>Nombre del Instructor: Mario</h3>
+            <p><strong>Experiencia y certificaciones:</strong><br>Ex competidor de levantamiento de pesas a nivel
+                nacional y certificado en técnicas de levantamiento de pesas olímpicas.</p>
+            <p><em>"Como ex atleta de levantamiento de pesas, enseño a mis clientes las técnicas adecuadas para
+                    mejorar su fuerza y potencia."</em></p>
+        </div>
+        <p id="moreinfo">Ver más...</p>
+        <div class="VerMas">
+            <div class="instructor">
+                <img src="https://th.bing.com/th/id/OIP.vfX7EN2T0wOMSUsUBTULCwHaEo?pid=ImgDet&rs=1"
+                    alt="Foto del instructor">
+                <h3>Nombre del Instructor: Laura</h3>
+                <p><strong>Experiencia y certificaciones:</strong><br>Instructora de yoga con formación en yoga
+                    vinyasa
+                    y certificación en meditación.</p>
+                <p><em>"Me apasiona el yoga y guío a mis estudiantes hacia el equilibrio físico, mental y espiritual
+                        a
+                        través de prácticas de vinyasa dinámicas y meditación."</em></p>
+            </div>
+            <div class="instructor">
+                <img src="https://i.pinimg.com/originals/f9/23/9f/f9239fd8a8ce6b8acfeae614a6b8e6e9.jpg"
+                    alt="Foto del instructor">
+                <h3>Nombre del Instructor: Anna</h3>
+                <p><strong>Experiencia y certificaciones:</strong> Entrenadora de pilates con más de 8 años de
+                    experiencia y certificación en pilates mat y máquinas.</p>
+                <p><em>"Utilizo el método de pilates para fortalecer el núcleo, mejorar la postura y aumentar la
+                        flexibilidad de mis clientes, adaptando cada sesión a sus necesidades individuales."</em>
+                </p>
+            </div>
+            <div class="instructor">
+                <img src="https://thumbs.dreamstime.com/b/professional-gym-instructor-24614594.jpg"
+                    alt="Foto del instructor">
+                <h3>Nombre del Instructor: Carlos</h3>
+                <p><strong>Experiencia y certificaciones:</strong> Especialista en entrenamiento de alta intensidad
+                    (HIIT) y certificado en acondicionamiento físico.</p>
+                <p><em>"Mis clases de entrenamiento de alta intensidad te desafiarán a superar tus límites y
+                        alcanzar un
+                        nivel óptimo de condición física."</em></p>
+            </div>
+        </div>
+        <div class="botonEntrenar">
+            <a class="boton" href="InscripcionEntrenamiento.html">¡Entrena con Nosotros!</a>
+        </div>
+    </section>
+    <section class="horarios">
+        <h2>Horarios de Clases</h2>
+
+        <table>
+            <tr>
+                <th>Clase</th>
+                <th>Instructor</th>
+                <th>Día</th>
+                <th>Hora</th>
+            </tr>
+            <tr>
+                <td>Yoga</td>
+                <td>Laura</td>
+                <td>Lunes</td>
+                <td>10:00 AM - 11:00 AM</td>
+            </tr>
+            <tr>
+                <td>Entrenamiento Funcional</td>
+                <td>Juan</td>
+                <td>Martes</td>
+                <td>9:00 AM - 10:00 AM</td>
+            </tr>
+            <tr>
+                <td>Zumba</td>
+                <td>Anna</td>
+                <td>Miércoles</td>
+                <td>6:00 PM - 7:00 PM</td>
+            </tr>
+            <tr>
+                <td>Pilates</td>
+                <td>Pedro</td>
+                <td>Jueves</td>
+                <td>4:00 PM - 5:00 PM</td>
+            </tr>
+            <tr>
+                <td>Boxeo</td>
+                <td>Mario</td>
+                <td>Viernes</td>
+                <td>7:00 AM - 8:00 AM</td>
+            </tr>
+            <tr>
+                <td>Spinning</td>
+                <td>Carlos</td>
+                <td>Sábado</td>
+                <td>11:00 AM - 12:00 PM</td>
+            </tr>
+        </table>
+    </section>
+    <section class="testimonios">
+        <p>Testimonios</p>
+        <div class="testimonio">
+            <img src="https://th.bing.com/th/id/OIP.ebz7CUt4nspUqcrgJE3iggHaLH?pid=ImgDet&rs=1  "
+                alt="Foto del instructor">
+            <div class="testimonio-content">
+                <h3>Nombre: Laura</h3>
+                <p><strong>Resultados y mejoras:</strong> Logré perder 10 kg de grasa corporal y aumentar mi
+                    masa muscular en solo 3 meses de entrenamiento con Elite Gym.</p>
+                <p><em>"Desde que comencé a entrenar con Elite Gym, he visto una transformación completa en
+                        mi cuerpo y en mi nivel de condición física. Me siento más fuerte, más en forma y
+                        más segura de mí misma. ¡Gracias a los entrenadores dedicados y al programa de
+                        entrenamiento personalizado, he logrado resultados que nunca creí posibles!"</em>
+                </p>
+            </div>
+        </div>
+        <div class="testimonio">
+            <img src="https://i.pinimg.com/originals/f1/81/59/f18159dd10296a3f633a1722527b8e0a.jpg"
+                alt="Foto del instructor">
+            <div class="testimonio-content">
+                <h3>Nombre: Roberto</h3>
+                <p><strong>Resultados y mejoras:</strong> Aumenté mi fuerza en un 40% y gané 5 kg de masa
+                    muscular magra después de entrenar con Elite Gym durante 6 meses.</p>
+                <p><em>"Gracias a los programas de entrenamiento avanzados y a la atención personalizada de
+                        los entrenadores de Elite Gym, he alcanzado un nivel de fuerza y rendimiento que
+                        nunca imaginé. Además de los resultados físicos, mi confianza y mi disciplina
+                        también se han fortalecido. Recomiendo encarecidamente Elite Gym a cualquiera que
+                        busque transformar su cuerpo y su mente."</em></p>
+            </div>
+        </div>
+        <a href="InscripcionEntrenamiento.html" class="boton-imagen"></a>
+    </section>
+    <footer class="pie">
+        <p class="frase-motivacional">"El único límite para alcanzar tus metas eres tú mismo. ¡No te detengas!"</p>
+        <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+    </footer>
+    <!--JAVASCRIPT-->
+    <script>
+        // obtener elemento y registrar su evento
+        let verMas = document.querySelector('#moreinfo');
+        verMas.addEventListener('click', function (e) {// funcion anonima que recibe el evento
+            let div = document.querySelector('.VerMas');//acceder al div .VerMas
+            if (div.style.display !== 'none') {
+                div.style.display = 'none';
+                verMas.textContent = "Ver más...";
+            } else {
+                verMas.textContent = "Ver menos...";//cambiar contenido del p
+                div.style.display = 'block';
+                div.style.display = 'flex';
+                div.style.flexWrap = 'wrap';
+                div.style.AlingItems="center";
+                div.style.justifyContent = "center";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo Arturo Vargas Alvarado">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio Elite Gym: Clases</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @media screen and (max-width: 810px) {
+      .navegacion {
+        display: grid;
+      }
+
+      .barra li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+    
+        section h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        #galeria a {
+            text-decoration: none;
+        }
+        .contenedor>p {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        #contenedorPrincipal {
+            width: 90%;
+            margin: auto;
+        }
+
+        .elemento img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            justify-content: center;
+        }
+
+        .elemento {
+            border-radius: 10px;
+            padding: 10px;
+            min-width: 105px;
+            margin-left: 5px;
+            margin-top: 5px;
+            width: 10%;
+            height: 160px;
+            background-color: #cad5ddbe;
+        }
+        .elemento p{
+            text-align: center;
+            font-family: 'Roboto', sans-serif; 
+            color: #666; 
+            font-size: 17px; 
+        }
+
+        .contenido{
+            margin-bottom: 30px;
+        }
+        .texto {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f0f0f0; padding: 20px; 
+
+        }
+        .texto h3{
+            font-family: 'Montserrat', sans-serif; 
+            color: #333; 
+            text-transform: uppercase;
+        }
+        .texto p{
+            font-family: 'Roboto', sans-serif; 
+            color: #666; 
+            font-size: 20px; 
+            line-height: 1.5;
+        }
+        .texto:nth-child(2), .texto:nth-child(4), .texto:nth-child(6){
+            background-color: #d6e0e7; padding: 20px; 
+            
+        }      
+        /*----Maquetación----*/
+         /*Maquetación flex*/
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+         /*Maquetación inline-block*/
+        .texto {
+            display: inline-block;
+            width: 60%;
+            height: 270px;
+            transition: font-size 0.3s, color 0.3s; /* Transiciones suaves al cambiar el tamaño de fuente y el color */
+            
+        }
+        .video{
+            display: inline-block;
+            width: 35%;
+            vertical-align: top;
+            border-radius: 40px;
+        }
+          /*Maquetación flexbox*/
+          #galeria {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 10px 20px;
+            height: 200px;
+        }
+        /*Ajusta el ancho, alto y la posición*/
+        iframe {
+            width: 100%;
+            position: center;
+            height: 300px;
+        }
+
+               /* Estilos para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .info-contact,
+            .info-Mensaje,
+            .info-redes {
+                width: 90%;
+                margin-top: 5%;
+            }
+        }
+
+        /* Estilos para pantallas aún más pequeñas */
+        @media (max-width: 480px) {
+            .info-contact,
+            .info-Mensaje,
+            .info-redes {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Nuestras clases</h1>
+    </header>
+    <nav class="menu">
+        <ul class="barra">
+            <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+            <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+            <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+            <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+            <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+            <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+            <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+            <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+        </ul>
+    </nav>
+    <section class="contenedor">
+        <h2>Conoce nuestras clases!</h2>
+        <div id="contenedorPrincipal">
+            <div id="galeria">
+                <div class="elemento">
+                    <a href="#destino1">
+                        <img src="Imagenes/Estiramiento_Funcional.png" alt="Estiramiento_Funcional">
+                        <p>Entrenamiento funcional</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino2">
+                        <img src="Imagenes/AeroLocal.png" alt="AeroLocal">
+                        <p>Aero Local</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino3">
+                    <img src="Imagenes/Aerocombat.png" alt="Aerocombat">
+                    <p>Aero Combat</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino4">
+                    <img src="Imagenes/Ritmo.png" alt="ritmo">
+                    <p>Ritmo</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino5">
+                    <img src="Imagenes/yoga.png" alt="Yoga">
+                    <p>Yoga</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino6">
+                    <img src="Imagenes/abdominales.png" alt="Abdominales">
+                    <p>Abdominales</p>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#destino7">
+                    <img src="Imagenes/estiramiento.png" alt="Estiramiento">
+                    <p>Estiramiento</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>    
+    <section>        
+        <div class="contenido">
+            
+            <div class="texto" id="destino1">
+                <br><br><h3>Entrenamiento funcional</h3>
+                <p>Vas a aprender movimientos y posturas que luego vas a poder aplicar en tu vida diaria. Power, intensa y efectiva.</p>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/n6-UGb8wfD4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="contenido">
+            <div class="video" id="destino2">
+                <iframe src="https://www.youtube.com/embed/7XxeZoOzJrQ" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            </div>
+            <div class="texto">
+                <br><br><h3>Aero Local</h3>
+                <p>Una clase que te tonifica y aumenta tu resistencia muscular. Ponele que quieres endurecer los brazos y no te copa mucho la sala musculación, esta es la clase para vos.</p>            
+            </div>  
+        </div>
+        <div class="contenido">
+            <div class="texto" id="destino3">
+                <br><br><h3>Aero Combat</h3>
+                <p>VTe propone 45 minutos de clase con intensidad al máximo y una variada combinación de golpes de manos y patadas para traspirar y llevar tu energía al 100%.</p>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/HPPIer43ZOU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="contenido">
+            <div class="video" id="destino4">
+                <iframe width="425" height="300" src="https://www.youtube.com/embed/Q_DASVTfraM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
+            </div>
+            <div class="texto">
+                <br><br><h3>Ritmo</h3>                
+                <p>La mejor música para bailar, transpirás un montón, te reís y te liberás. ¿Te perdés en la coreo? Vos seguí, nadie te juzga. Aca venís a divertirte.</p>            
+            </div>
+            
+        </div>
+        <div class="contenido">
+            <div class="texto" id="destino5">
+                <br><br><h3>Yoga</h3>
+                <p>Conectate con tu respiración, regalate un momento solo para vos. Una serie de posturas (llamadas “asanas”) te permiten alcanzar una serenidad en tu mente y en tu cuerpo. Vas a tu ritmo, sin presiones.</p>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/WamU36hXiNw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            </div>
+        </div>
+        <div class="contenido">
+            <div class="video" id="destino6">
+                <iframe src="https://www.youtube.com/embed/2tXQbi16EdI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            </div>
+            <div class="texto">
+                <br><br><h3>Abdominales</h3>
+                <p>Una clase breve e intensa enfocada en la zona media de tu cuerpo (abdominales y espinales). Mejorás tu postura, aliviás dolores de espalda y tenés material para unas buenas selfies en el espejo.</p>            
+            </div>
+        </div>            
+        <div class="contenido">
+            <div class="texto" id="destino7">
+                <br><br><h3>Estiramiento</h3>
+                <p>Esta clase de 30 minutos te ayudará a fortalecer y mejorar la flexibilidad de tu cuerpo en forma integral a través de movimientos suaves y controlados. Además mejorarás tu postura de manera progresiva, ¡te ayudará a prevenir lesiones!</p>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/YQQfhILVR7c" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            </div>
+        </div>
+    </section>
+        <script>
+            
+        // Obtener las opciones de clases
+            var opc = document.getElementsByClassName('elemento');
+
+
+        // Agregar el evento de mouseover a cada red social
+        for (var i = 0; i < opc.length; i++) {
+        opc[i].addEventListener('mouseover', function () {
+            // Cambiar la opacidad al pasar el cursor sobre la red social
+            this.style.opacity = '0.5';
+            // Cambiar el estilo del cursor a "mano"
+            this.style.cursor = 'pointer';
+        });
+
+        // Agregar el evento de mouseout a cada red social
+        opc[i].addEventListener('mouseout', function () {
+            // Restablecer la opacidad al quitar el cursor de la red social
+            this.style.opacity = '1';
+            // Restablecer el estilo del cursor
+            this.style.cursor = 'auto';
+        });
+        }   
+            
+        // Obtener los textos de las secciones
+        var textS = document.getElementsByClassName('texto');
+
+    // Agregar el evento de mouseover a cada secciond de texto
+    for (var i = 0; i < textS.length; i++) {
+      textS[i].addEventListener('mouseover', function () {
+        // Cambiar el tamaño de texto a un mayor
+        this.style.fontSize = "18px";
+      });
+
+      // Agregar el evento de mouseout a cada seccion de texto
+      textS[i].addEventListener('mouseout', function () {
+        // Restablecer el tamaño de texto
+        this.style.fontSize = "16px"
+      });
+    }
+
+        </script>
+        
+            <footer class="pie">
+                    <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+            </footer>
+    </body>
+</html>

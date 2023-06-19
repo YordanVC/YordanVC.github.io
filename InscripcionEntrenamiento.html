@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Yordan Ivan Valdiviezo Capa">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Instructores Elite Gym</title>
+    <style>
+        /*maquetacion Grid*/
+        .Contenedor-grid {
+            min-height: 100%;
+            display: grid;
+            gap: 10px;
+            /*separacion entre areas*/
+            grid-template-areas:
+                /*Definir las areas*/
+                "header"
+                "menu"
+                "contenido"
+                "sideBar"
+                "footer"
+                /*diseño para moviles*/
+            ;
+        }
+
+        /*Asignar las areas Grid*/
+        .header {
+            grid-area: header;
+        }
+
+        .menu {
+            grid-area: menu;
+        }
+
+        .contenido {
+            grid-area: contenido;
+        }
+
+        .MasInfo {
+            grid-area: sideBar;
+        }
+
+        .pie {
+            grid-area: footer;
+        }
+
+        /*Diseño para escritorio*/
+        @media(min-width: 900px) {
+            .Contenedor-grid {
+                grid-template:
+                    "header header  header" 100px
+                    /*se puede definir de una vez el alto de las filas*/
+                    "menu   menu    menu" 50px
+                    "sideBar    contenido   contenido" auto
+                    "footer footer  footer" 100px/
+                    350px auto;
+                /*aqui se pueden definir el ancho de las columnas*/
+            }
+        }
+
+        /*Estilo del section Contenido*/
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+        }
+
+        .contenido h2 {
+            text-transform: uppercase;
+            margin: 0 auto;
+            /*para centrar*/
+        }
+
+        /*Estilo de aside*/
+        .MasInfo {
+            background-color: whitesmoke;
+            border-radius: 8px;
+        }
+
+        .MasInfo h2 {
+            font-size: 25px;
+            margin-left: 10px;
+        }
+
+        .MasInfo img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        /*para centrar los elemento del aside*/
+        .MasInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .MasInfo p {
+            padding: 5px;
+            margin: 0%;
+        }
+
+        /*Esilo de elementos del form Suscrip correo*/
+        #FormMasinfo {
+            display: flex;
+            flex-direction: row;
+            /* Cambiar la dirección de flex a horizontal */
+            align-items: center;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        /*Estilo para elementos del form inscripcion*/
+        .formularioInscripcion {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin: 0 auto;
+            /*para centrar*/
+            background-color: rgb(159, 212, 233);
+            max-width: 450px;
+            /* Limita el ancho máximo del div del formulario */
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #formInscripcion {
+            text-align: left;
+            max-width: 450px;
+        }
+
+        #formInscripcion label {
+            font-weight: bold;
+            margin-right: 10px;
+            padding: 15px;
+        }
+
+        #formInscripcion div {
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #formInscripcion div:nth-child(2n) {/*para cada div pares*/
+            background: #cee0f3;
+        }
+
+        input[type="text"] {
+            width: 210px;
+            /* Cambia el ancho de las cajas de texto*/
+            height: 25px;
+            border-radius: 6px;
+            border: 0;
+        }
+
+        input[name="pesoActual"],
+        input[name="pesoDeseado"],
+        input[name="estatura"] {
+            width: 100px;
+            /* Ajusta el valor del ancho de la caja de texto*/
+        }
+
+        .DivBotones {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #imgInscripcion img {
+            width: 300px;
+            height: 350px;
+
+        }
+
+        #imgInscripcion {
+            align-items: center;
+        }
+
+        /*Estilo Error de formulario*/
+        .mensajeError {
+            display: block;
+            color: rgb(255, 0, 0);
+            font-size: 12px;
+        }
+        .boton:hover {
+            background-color: #2c73ff;
+            color: #ffffff;
+        }
+
+        .boton:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
+
+<body class="Contenedor-grid">
+    <header class="header">
+        <h1 id="titulo">¡Únete a nuestro exclusivo programa de fitness ahora!</h1>
+    </header>
+    <nav class="menu">
+        <ul class="barra">
+            <li class="navegacion"><a class="links" href="index.html">Inicio</a></li>
+            <li class="navegacion"><a class="links" href="Servicios.html">Servicios</a></li>
+            <li class="navegacion"><a class="links" href="Clases.html">Clases</a></li>
+            <li class="navegacion"><a class="links" href="Instructores.html">Instructores</a></li>
+            <li class="navegacion"><a class="links" href="InscripcionEntrenamiento.html">Inscripción</a></li>
+            <li class="navegacion"><a class="links" href="Contacto.html">Contacto</a></li>
+            <li class="navegacion"><a class="links" href="CalculadorIMC.html">Calculadora IMC</a></li>
+            <li class="navegacion"><a class="links" href="Unete.html">Únete</a></li>
+        </ul>
+    </nav>
+    <section class="contenido">
+        <h2>¡Vamos, Inscribete ya!</h2>
+        <div class="formularioInscripcion">
+            <form id="formInscripcion">
+                <div>
+                    <label for="nombres">Nombres:</label>
+                    <input type="text" name="nombres" id="nombres" class="formItem" placeholder="Ingrese sus nombre">
+                </div>
+                <div>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" class="formItem"
+                        placeholder="Ingrese sus apellidos">
+                </div>
+                <div>
+                    <label>Telefono:</label>
+                    <input type="text" name="telefono" id="telefono" class="formItem">
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="text" name="correo" id="correo" class="formItem" placeholder="Ingrese su email">
+                </div>
+                <div>
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="date" name="fecha" id="fecha" class="formItem" >
+                </div>
+                <div>
+                    <label>Peso Actual(KG):</label>
+                    <input type="text" name="pesoActual" id="pesoActual" class="formItem" placeholder="peso en Kg">
+                </div>
+                <div>
+                    <label>Peso Deseado(KG):</label>
+                    <input type="text" name="pesoDeseado" id="pesoDeseado" class="formItem" placeholder="peso en Kg">
+                </div>
+                <div>
+                    <label>Estatura(m):</label>
+                    <input type="text" name="estatura" id="estatura" class="formItem" placeholder="Estatura en m.">
+                </div>
+                <div>
+                    <label>Genero:</label>
+                    <input class="gen" id="fem" type="radio" name="genero" value="F">Femenino
+                    <input class="gen" id="mas" type="radio" name="genero" value="M">Masculino
+                    <input class="gen" id="otro" type="radio" name="genero" value="O">Otro
+                </div>
+                <div>
+                    <label>Tipo de Membresía:</label>
+                    <select name="membresia" id="membresia" class="formItem">
+                        <option value="0">Seleccione..</option>
+                        <option value="1">Normal</option>
+                        <option value="2">VIP</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Presenta alguna complicación médica?:</label> 
+                    <input class="compli" id="Si" type="radio" name="complicacion" value="s">Sí
+                    <input class="compli" id="No" type="radio" name="complicacion" value="n">No
+                </div>
+
+                <div class="DivBotones">
+                    <input type="submit" class="boton" value="Enviar">
+                    <input type="reset" class="boton" value="Cancelar">
+                </div>
+            </form>
+        </div>
+    </section>
+    <aside class="MasInfo">
+        <h2>¿Quieres saber más sobre nuestro plan de entrenamiento?</h2>
+        <img src="https://media.tenor.com/UTjlUmhG8B4AAAAC/ejercicio-gym.gif" alt="entrenar GIF">
+        <p style="color:black">Ingresa tu correo para recibir información completa.</p>
+        <form id="FormMasinfo" name="FormMasinfo">
+            <div class="inputCorreo">
+                <input type="text" name="txtCorreoSus" placeholder="Ingresa tu correo">
+            </div>
+            <div class="BotonCorreo">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </aside>
+    <footer class="pie">
+        <p class="frase-motivacional">"El único límite para alcanzar tus metas eres tú mismo. ¡No te detengas!"</p>
+        <p>&copy; 2023 Gimnasio Elite Gym. Todos los derechos reservados.</p>
+    </footer>
+
+    <!--VALIDACION CON JAVASCRIPT-->
+    <script>
+        //Expresiones regulares
+        var RegCelular = /^09\d{8}$/;//para Ecuador
+            var Regcorreo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            var Regletras = /[a-zA-Z\s]/;// letrasyespacio 
+
+        //obtener los formularios
+        
+        var FormMasinfo = document.getElementById("FormMasinfo");
+        FormMasinfo.addEventListener('submit',function(e){//funcion anonima para tambien validar solo este form.
+            var res=true;
+            clearM();
+            res=ValidarCorreo(FormMasinfo.txtCorreoSus);
+            if (!res) {
+                event.preventDefault();
+            }else{
+                alert("Infomacion enviada correctamente.");
+            }
+        });
+        var form = document.getElementById("formInscripcion");
+        form.addEventListener('submit', validar);//asignar el evento en el submit
+
+        //definir la funcion de validacion
+        function validar(event) {
+            var resultado = true;//variable para activar o desactivar el evento
+            //obtener los elementos de los formularios.
+            var txtNombres = document.getElementById("nombres");
+            var txtApellidos = document.getElementById("apellidos");
+            var txtTelefono = document.getElementById("telefono");
+            var txtCorreo = document.getElementById("correo");
+            var txtFecha = document.getElementById("fecha");
+            var txtPesoActual = document.getElementById("pesoActual");
+            var txtPesoDeseado = document.getElementById("pesoDeseado");
+            var txtEstatura = document.getElementById("estatura");
+            var RDgenero = document.querySelectorAll("input[name='genero']");
+            var selectMembresia = document.getElementById("membresia");
+            var RDcomplicacionMed = document.querySelectorAll("input[name='complicacion']");
+            var correoMasinfo=document.getElementsByClassName("txtCorreoSus");
+            clearM();//para que limpie mensajes de error y no aniden si ya existen.
+            //validacion nombres
+            if (txtNombres.value === '') {
+                resultado = false;
+                Error("Campo obligatorio*", txtNombres);
+            } else if (!Regletras.test(txtNombres.value)) {
+                resultado = false;
+                Error("Solo se admiten letras*", txtNombres);
+            }
+            //validacion apellidos
+            if (txtApellidos.value === '') {
+                resultado = false;
+                Error("Campo obligatorio*", txtApellidos);
+            } else if (!Regletras.test(txtApellidos.value)) {
+                resultado = false;
+                Error("Solo se admiten letras*", txtApellidos);
+            }
+            //validacion telefono
+            if (txtTelefono.value === "") {
+                resultado = false;
+                Error("Campo obligatorio*", txtTelefono);
+            } else if (!RegCelular.test(txtTelefono.value)) {
+                resultado = false;
+                Error("Numero invalido para Ecuador", txtTelefono);
+            }
+            //validacion correo
+            resultado=ValidarCorreo(txtCorreo);
+
+            // validacion de fecha
+            var ingreso = txtFecha.value;
+            var fechaNac = new Date(ingreso);// convertir a fecha
+            var anio = fechaNac.getFullYear();
+            var fechaActual = new Date();// fecha actual
+            var anioA = fechaActual.getFullYear();
+            if (fechaNac > fechaActual) {
+                resultado = false;
+                Error("Fecha invalida: No puede ser superior al actual", txtFecha);
+            } else if (anio < 1933) {
+                resultado = false;
+                Error("Fecha invalida", txtFecha);
+            } else if ((anioA - anio) < 15) {
+                resultado = false;
+                Error("Necesitas tener al menos 15 años", txtFecha);
+            }
+            //validacion radio button Genero
+            let sel = false;
+            for (let i = 0; i < RDgenero.length; i++) {
+                if (RDgenero[i].checked) {
+                    sel = true;
+                    break;
+                }
+            }
+            if (!sel) {
+                resultado = false;
+                Error("Debe seleccionar un genero", RDgenero[0]);
+            }
+            //validacion select Membresia
+            if (selectMembresia.value === null || selectMembresia.value === '0') {
+                resultado = false;
+                Error("Debe selecionar una membresía", selectMembresia);
+            }
+            //validacion radio button complicacion medica
+            let selCompli = false;
+            for (let i = 0; i < RDcomplicacionMed.length; i++) {
+                if (RDcomplicacionMed[i].checked) {
+                    selCompli = true;
+                    break;
+                }
+            }
+            if (!selCompli) {
+                resultado = false;
+                Error("Debe confirmar su estado médico.", RDcomplicacionMed[0]);
+            }
+            
+            // detener el evento  //stop form from submitting
+            if (!resultado) {
+                event.preventDefault();
+            }else{
+                alert("Infomacion enviada correctamente.");
+            }
+        }
+        //al dar cancelar tambien se limpia el form.
+        form.addEventListener("reset", clearM);
+        //Eventos teclado
+        form.telefono.addEventListener("keypress", soloNumeros);
+        form.nombres.addEventListener("keypress", soloLetras);
+        form.apellidos.addEventListener("keypress", soloLetras);
+        form.estatura.addEventListener("keypress", Decimales);
+        form.pesoActual.addEventListener("keypress", Decimales);
+        form.pesoDeseado.addEventListener("keypress", Decimales);
+        //definicion de funciones teclado
+        function soloNumeros(e) {
+            var key = e.keyCode;
+            if (key < 48 || key > 57) {
+                e.preventDefault();
+            }
+            if (e.target.value.length >= 10) {
+                e.preventDefault();
+            }
+        }
+        //funcion para solo admitir letras
+        function soloLetras(e) {
+            var key = e.keyCode;
+            var palabra = String.fromCharCode(key);
+            var regex = /[a-zA-Z\s]/; // Expresión regular para letras y espacios
+            if (!regex.test(palabra)) {
+                e.preventDefault();
+            }
+        }
+
+        function Decimales(e) {
+            var key = e.keyCode;
+            var punto = String.fromCharCode(key);
+            // Permite números
+            if (!/[\d.]/.test(punto) && key !== 8) {
+                e.preventDefault();
+            }
+            var numero = e.target.value;
+            // Verifica la longitud del decimal
+            if (numero.length >= 6) {
+                e.preventDefault();
+            }
+            // Verifica más de un punto decimal
+            if (punto === "." && numero.indexOf(".") !== -1) {
+                e.preventDefault();
+            }
+        }
+        function Error(cadenaMensaje, elemento) {
+            elemento.focus();
+            var nodoPadre = elemento.parentNode;
+            var nodoMensaje = document.createElement("span");
+            nodoMensaje.textContent = cadenaMensaje;
+            nodoMensaje.setAttribute("class", "mensajeError");
+            nodoPadre.appendChild(nodoMensaje);
+        }
+        //funcion para limpiar mensajes de error
+        function clearM() {
+            var mensajes = document.querySelectorAll(".mensajeError");
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();// remueve o elimina un elemento de mi doc html
+            }
+        }
+        //funcion a parte porque tengo 2 formularios con correo
+        function ValidarCorreo(CampoCorreo){
+            var resultado=true;
+            //validacion correo de mas informacion
+            if (CampoCorreo.value === "") {
+                resultado = false;
+                Error("Campo obligatorio*", CampoCorreo);
+            } else if (!Regcorreo.test(CampoCorreo.value)) {
+                resultado = false;
+                Error("Correo electronico invalido", CampoCorreo);
+            }
+            return resultado;
+        }
+
+    </script>
+</body>
+
+</html>
